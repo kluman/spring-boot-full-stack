@@ -1,0 +1,8 @@
+.DS_Store
+
+# IntelliJ
+*.iml
+*.idea
+
+# Maven Build
+/target
