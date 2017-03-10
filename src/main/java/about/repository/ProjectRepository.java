@@ -1,9 +1,7 @@
 package about.repository;
 
-/**
- * User: kevinleeluman
- * Date: 3/9/17
- * Time: 9:36 PM
- */
-public class ProjectRepository {
+import org.springframework.data.repository.CrudRepository;
+import about.Project;
+
+public interface ProjectRepository extends CrudRepository<Project, Long> {
 }

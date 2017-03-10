@@ -1,9 +1,7 @@
 package about.repository;
 
-/**
- * User: kevinleeluman
- * Date: 3/9/17
- * Time: 9:40 PM
- */
-public class PositionRepository {
+import org.springframework.data.repository.CrudRepository;
+import about.Position;
+
+public interface PositionRepository extends CrudRepository<Position, Long> {
 }

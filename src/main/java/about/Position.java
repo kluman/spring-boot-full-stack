@@ -3,8 +3,18 @@ package about;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
+@Entity
 public class Position {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
 
     private String title;
 
@@ -14,6 +24,7 @@ public class Position {
 
     private String responsibilities;
 
+    @OneToMany
     private List<Project> projects;
 
     public String getTitle() {
