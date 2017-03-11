@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import about.repository.PositionRepository;
+
 @Entity
 public class Position {
 
@@ -16,47 +18,48 @@ public class Position {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    private String title;
+    private final String title;
 
-    private Date start;
+    private final Date start;
 
-    private Date end;
+    private final Date end;
 
-    private String responsibilities;
+    private final String responsibilities;
 
     @OneToMany
-    private List<Project> projects;
+    private final List<Project> projects;
+
+    public Position(Builder builder) {
+        this.title = builder.title;
+        this.start = builder.start;
+        this.end = builder.end;
+        this.responsibilities = builder.responsibilities;
+        this.projects = builder.projects;
+    }
+
+    // Spring Boot JPA needs the default constructor so stub out with null values.
+    public Position() {
+        this.title = null;
+        this.start = null;
+        this.end = null;
+        this.responsibilities = null;
+        this.projects = null;
+    }
 
     public String getTitle() {
         return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public Date getStart() {
         return start;
     }
 
-    public void setStart(Date start) {
-        this.start = start;
-    }
-
     public Date getEnd() {
         return end;
     }
 
-    public void setEnd(Date end) {
-        this.end = end;
-    }
-
     public String getResponsibilities() {
         return responsibilities;
-    }
-
-    public void setResponsibilities(String responsibilities) {
-        this.responsibilities = responsibilities;
     }
 
     public List<Project> getProjects() {
@@ -66,7 +69,51 @@ public class Position {
         return projects;
     }
 
-    public void setProjects(List<Project> projects) {
-        this.projects = projects;
+    public static class Builder {
+
+        private String title;
+
+        private Date start;
+
+        private Date end;
+
+        private String responsibilities;
+
+        private List<Project> projects;
+
+        public Position build(PositionRepository repository) {
+            Position position = new Position(this);
+
+            if (repository != null) {
+                repository.save(position);
+            }
+
+            return position;
+        }
+
+        public Builder title(String title) {
+            this.title = title;
+            return this;
+        }
+
+        public Builder start(Date start) {
+            this.start = start;
+            return this;
+        }
+
+        public Builder end(Date end) {
+            this.end = end;
+            return this;
+        }
+
+        public Builder responsibilities(String responsibilities) {
+            this.responsibilities = responsibilities;
+            return this;
+        }
+
+        public Builder projects(List<Project> projects) {
+            this.projects = projects;
+            return this;
+        }
     }
 }

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import about.Company;
 import about.Person;
 import about.Position;
+import about.Project;
 import about.University;
 
 /**
@@ -53,45 +54,46 @@ public class AboutLoader implements ApplicationListener<ContextRefreshedEvent> {
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
 
-        Person me = new Person();
-        me.setFirst("Kevin");
-        me.setLast("Luman");
-        me.setMiddle("L");
-        me.setEmail("kevinleeluman@gmail.com");
-        me.setAddress("20046 Muirfield Village Ct. Ashuburn, VA 20147");
-        me.setHomePhone("703-468-1398");
-
-        University university = new University();
-        university.setDegree("Government & Politics");
-        university.setName("George Mason University");
-        university.setNotes("Graduated with High Honors.");
-        university.setGraduation(Date.from(Instant.ofEpochSecond(833635669)));
-        universityRepository.save(university);
-
-        Company ps = new Company();
-        ps.setName("Pefect Sense");
-        ps.setAddress("Reston, VA");
-
-        Position developer = new Position();
-        developer.setTitle("Principle Software Engineer");
-        positionRepository.save(developer);
-
-        ps.setPositions(new ImmutableList.Builder<Position>()
-                .add(developer)
-                .build());
-        companyRepository.save(ps);
-
-        // Add past companies and education
-
-        me.setJobs(new ImmutableList.Builder<Company>()
-                .add(ps)
-                .build());
-
-        me.setEducation(new ImmutableList.Builder<University>()
-                .add(university)
-                .build());
-
-        personRepository.save(me);
-
+        new Person.Builder()
+                .first("Kevin")
+                .last("Luman")
+                .middle("L")
+                .email("kevinleeluman@gmail.com")
+                .address("20046 Muirfield Village Ct. Ashuburn, VA 20147")
+                .homePhone("703-468-1398")
+                .education(new ImmutableList.Builder()
+                        .add(new University.Builder()
+                                .degree("Government & Politics")
+                                .name("George Mason University")
+                                .notes("Graduated with High Honors.")
+                                .graduation(Date.from(Instant.ofEpochSecond(833635669)))
+                                .build(universityRepository))
+                        .build())
+                .jobs(new ImmutableList.Builder<Company>()
+                        .add(new Company.Builder()
+                                .name("Pefect Sense")
+                                .address("12120 Sunset Hills Rd, Reston, VA 20190")
+                                .phone("(703) 956-5850")
+                                .positions(new ImmutableList.Builder()
+                                        .add(new Position.Builder()
+                                                .title("Principle Software Engineer")
+                                                .start(Date.from(Instant.ofEpochSecond(1271725446)))
+                                                .projects(new ImmutableList.Builder()
+                                                        .add(new Project.Builder()
+                                                                .title("Politico")
+                                                                .responsibilities("Backend Java & JSP development. Custom Adobe InDesign plugin to allow bi-directional updating between Brightspot CMS and Adobe InDesign.")
+                                                                .website("www.politico.com")
+                                                                .build(projectRepository))
+                                                        .add(new Project.Builder()
+                                                                .title("Univision")
+                                                                .responsibilities("Backend Java (+Freemarker) and Frontend (CSS, Javascript, HTML) development.")
+                                                                .website("www.univision.com")
+                                                                .build(projectRepository))
+                                                        .build())
+                                                .build(positionRepository))
+                                        .build())
+                                .build(companyRepository))
+                        .build())
+                .build(personRepository);
     }
 }

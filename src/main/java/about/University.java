@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import about.repository.UniversityRepository;
+
 @Entity
 public class University {
 
@@ -13,43 +15,83 @@ public class University {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    private String name;
+    private final String name;
 
-    private Date graduation;
+    private final Date graduation;
 
-    private String Degree;
+    private final String degree;
 
-    private String notes;
+    private final String notes;
+
+    public University(Builder builder) {
+        this.name = builder.name;
+        this.graduation = builder.graduation;
+        this.degree = builder.degree;
+        this.notes = builder.notes;
+    }
+
+    // Spring Boot JPA needs the default constructor so stub out with null values.
+    public University() {
+        this.name = null;
+        this.graduation = null;
+        this.degree = null;
+        this.notes = null;
+    }
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public Date getGraduation() {
         return graduation;
     }
 
-    public void setGraduation(Date graduation) {
-        this.graduation = graduation;
-    }
-
     public String getDegree() {
-        return Degree;
-    }
-
-    public void setDegree(String degree) {
-        Degree = degree;
+        return degree;
     }
 
     public String getNotes() {
         return notes;
     }
 
-    public void setNotes(String notes) {
-        this.notes = notes;
+    public static class Builder {
+
+        private String name;
+
+        private Date graduation;
+
+        private String degree;
+
+        private String notes;
+
+        public University build(UniversityRepository repository) {
+            University university = new University(this);
+
+            if (repository != null) {
+                repository.save(university);
+            }
+
+            return university;
+        }
+
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public Builder graduation(Date graduation) {
+            this.graduation = graduation;
+            return this;
+        }
+
+        public Builder degree(String degree) {
+            this.degree = degree;
+            return this;
+        }
+
+        public Builder notes(String notes) {
+            this.notes = notes;
+            return this;
+        }
     }
 }

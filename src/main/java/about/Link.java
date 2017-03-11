@@ -12,38 +12,62 @@ public class Link {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    private String body;
+    private final String body;
 
-    private String href;
+    private final String href;
 
-    private Target target;
+    private final Target target;
+
+    public Link(Builder builder) {
+        this.body = builder.body;
+        this.href = builder.href;
+        this.target = builder.target;
+    }
+
+    // Spring Boot JPA needs the default constructor so stub out with null values.
+    public Link() {
+        this.body = null;
+        this.href = null;
+        this.target = null;
+    }
 
     public String getBody() {
         return body;
-    }
-
-    public void setBody(String body) {
-        this.body = body;
     }
 
     public String getHref() {
         return href;
     }
 
-    public void setHref(String href) {
-        this.href = href;
-    }
-
     public Target getTarget() {
         return target;
     }
 
-    public void setTarget(Target target) {
-        this.target = target;
+    public static class Builder {
+
+        private String body;
+
+        private String href;
+
+        private Target target;
+
+        public Builder body(String body) {
+            this.body = body;
+            return this;
+        }
+
+        public Builder href(String href) {
+            this.href = href;
+            return this;
+        }
+
+        public Builder target(Target target) {
+            this.target = target;
+            return this;
+        }
     }
 
     public enum Target {
-
         TOP("_top"),
         BLANK("_blank"),
         SELF("_self");
