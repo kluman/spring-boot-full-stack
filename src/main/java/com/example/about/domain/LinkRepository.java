@@ -1,7 +1,7 @@
-package about.repository;
+package com.example.about.domain;
 
 import org.springframework.data.repository.CrudRepository;
-import about.Link;
+import com.example.about.domain.Link;
 
 public interface LinkRepository extends CrudRepository<Link, Long> {
 }

@@ -1,18 +1,23 @@
-package about.repository;
+package com.example.about;
 
 import java.time.Instant;
 import java.util.Date;
 
+import com.example.about.domain.Company;
+import com.example.about.domain.Person;
+import com.example.about.domain.Position.Builder;
+import com.example.about.domain.Project;
+import com.example.about.domain.University;
+import com.example.about.domain.CompanyRepository;
+import com.example.about.domain.PersonRepository;
+import com.example.about.domain.PositionRepository;
+import com.example.about.domain.ProjectRepository;
+import com.example.about.domain.UniversityRepository;
 import com.google.common.collect.ImmutableList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
-import about.Company;
-import about.Person;
-import about.Position;
-import about.Project;
-import about.University;
 
 /**
  * Preload database with information.
@@ -75,7 +80,7 @@ public class AboutLoader implements ApplicationListener<ContextRefreshedEvent> {
                                 .address("12120 Sunset Hills Rd, Reston, VA 20190")
                                 .phone("(703) 956-5850")
                                 .positions(new ImmutableList.Builder()
-                                        .add(new Position.Builder()
+                                        .add(new Builder()
                                                 .title("Principle Software Engineer")
                                                 .start(Date.from(Instant.ofEpochSecond(1271725446)))
                                                 .projects(new ImmutableList.Builder()

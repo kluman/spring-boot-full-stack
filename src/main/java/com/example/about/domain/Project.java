@@ -1,4 +1,4 @@
-package about;
+package com.example.about.domain;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -8,8 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-import about.repository.ProjectRepository;
 
 @Entity
 public class Project {
