@@ -29,8 +29,6 @@ public class Person {
 
     private final String email;
 
-    private String temp;
-
     @OneToMany
     private final List<Link> links;
 
