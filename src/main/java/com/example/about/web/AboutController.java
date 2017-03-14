@@ -7,10 +7,8 @@ import com.example.about.domain.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/me")
 public class AboutController {
 
     private PersonRepository personRepository;
@@ -20,11 +18,12 @@ public class AboutController {
         this.personRepository = personRepository;
     }
 
-    @GetMapping
-    public String me(Map<String, Object> model) {
+    @GetMapping("/")
+    public String about(Map<String, Object> model) {
         Person me = personRepository.findOne(1L);
         model.put("me", me);
 
-        return "me";
+        // Return the name of the HTML (file) view.
+        return "index";
     }
 }
