@@ -1,0 +1,24 @@
+{
+  "name": "spring-boot-jpa-mustache-reactjs",
+  "version": "0.1.0",
+  "description": "Spring Boot using JPA, Mustache and ReactJS",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:kluman/about.git"
+  },
+  "author": "Kevin Luman",
+  "license": "JSON",
+  "dependencies": {
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "rest": "^2.0.0",
+    "webpack": "^2.2.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.0",
+    "babel-loader": "^6.4.1",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.24.0",
+    "babel-preset-react": "^6.23.0"
+  }
+}
