@@ -2,27 +2,36 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 
 import Person from './Person'
+import Address from './Address'
+import * as Utils from './Utils'
 
 class App extends React.Component {
 
 	constructor(props) {
 		super(props);
 
-		// this.state = {foo: 'bar'};
+		this.state = {loading: true, first: undefined, last: undefined, middle: undefined};
 	}
 
-	// componentDidMount() {
-	// 	client({method: 'GET', path: '/api/employees'}).done(response => {
-	// 		this.setState({employees: response.entity._embedded.employees});
-	// 	});
-	// }
+	componentDidMount() {
+    Utils.api('/api/persons/1', this);
+	}
 
 	render() {
-    return (
-        <div className="App">
-          <Person first="Kevin" last="Luman" />
-        </div>
-    )
+    if (this.state.loading) {
+      return <div className="loading">Loading...</div>
+      
+    } else {
+      // TODO:  https://facebook.github.io/react/docs/context.html#parent-child-coupling
+      //       should _links in person response (ie, jobs...) use Router
+
+      return (
+          <div className="App">
+            <Person first={this.state.first} middle={this.state.middle} last={this.state.last} />
+            <Address url={this.state._links.address} />
+          </div>
+      )
+    }
 	}
 }
 

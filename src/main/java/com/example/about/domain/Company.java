@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Company {
@@ -17,7 +18,8 @@ public class Company {
 
     private final String name;
 
-    private final String address;
+    @OneToOne
+    private final Address address;
 
     private final String phone;
 
@@ -47,7 +49,7 @@ public class Company {
         return name;
     }
 
-    public String getAddress() {
+    public Address getAddress() {
         return address;
     }
 
@@ -70,7 +72,7 @@ public class Company {
 
         private String name;
 
-        private String address;
+        private Address address;
 
         private String phone;
 
@@ -93,7 +95,7 @@ public class Company {
             return this;
         }
 
-        public Builder address(String address) {
+        public Builder address(Address address) {
             this.address = address;
             return this;
         }

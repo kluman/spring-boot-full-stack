@@ -3,15 +3,17 @@ package com.example.about;
 import java.time.Instant;
 import java.util.Date;
 
+import com.example.about.domain.Address;
+import com.example.about.domain.AddressRepository;
 import com.example.about.domain.Company;
-import com.example.about.domain.Person;
-import com.example.about.domain.Position.Builder;
-import com.example.about.domain.Project;
-import com.example.about.domain.University;
 import com.example.about.domain.CompanyRepository;
+import com.example.about.domain.Person;
 import com.example.about.domain.PersonRepository;
+import com.example.about.domain.Position.Builder;
 import com.example.about.domain.PositionRepository;
+import com.example.about.domain.Project;
 import com.example.about.domain.ProjectRepository;
+import com.example.about.domain.University;
 import com.example.about.domain.UniversityRepository;
 import com.google.common.collect.ImmutableList;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +32,7 @@ public class AboutLoader implements ApplicationListener<ContextRefreshedEvent> {
     private PersonRepository personRepository;
     private ProjectRepository projectRepository;
     private PositionRepository positionRepository;
+    private AddressRepository addressRepository;
 
     @Autowired
     public void setUniversityRepository(UniversityRepository universityRepository) {
@@ -56,15 +59,25 @@ public class AboutLoader implements ApplicationListener<ContextRefreshedEvent> {
         this.positionRepository = positionRepository;
     }
 
+    @Autowired
+    public void setAddressRepository(AddressRepository addressRepository) {
+        this.addressRepository = addressRepository;
+    }
+
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
 
         new Person.Builder()
                 .first("Kevin")
                 .last("Luman")
-                .middle("L")
+                .middle("L.")
                 .email("kevinleeluman@gmail.com")
-                .address("20046 Muirfield Village Ct. Ashuburn, VA 20147")
+                .address(new Address.Builder()
+                        .setAddress("20146 Muirfield Village Ct.")
+                        .setCity("Ashburn")
+                        .setRegion("VA")
+                        .setPostalCode("20147")
+                        .build(addressRepository))
                 .homePhone("703-468-1398")
                 .education(new ImmutableList.Builder()
                         .add(new University.Builder()
@@ -77,7 +90,12 @@ public class AboutLoader implements ApplicationListener<ContextRefreshedEvent> {
                 .jobs(new ImmutableList.Builder<Company>()
                         .add(new Company.Builder()
                                 .name("Pefect Sense")
-                                .address("12120 Sunset Hills Rd, Reston, VA 20190")
+                                .address(new Address.Builder()
+                                        .setAddress("12120 Sunset Hills Rd")
+                                        .setCity("Reston")
+                                        .setRegion("VA")
+                                        .setPostalCode("20190")
+                                        .build(addressRepository))
                                 .phone("(703) 956-5850")
                                 .positions(new ImmutableList.Builder()
                                         .add(new Builder()
