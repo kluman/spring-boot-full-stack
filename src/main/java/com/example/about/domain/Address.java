@@ -20,11 +20,14 @@ public class Address {
 
     private final String postalCode;
 
+    private final String phone;
+
     public Address(Builder builder) {
         this.address = builder.address;
         this.city = builder.city;
         this.region = builder.region;
         this.postalCode = builder.postalCode;
+        this.phone = builder.phone;
     }
 
     // Spring Boot JPA needs the default constructor so stub out with null values.
@@ -33,6 +36,7 @@ public class Address {
         this.city = null;
         this.region = null;
         this.postalCode = null;
+        this.phone = null;
     }
 
     public String getAddress() {
@@ -45,6 +49,10 @@ public class Address {
 
     public String getRegion() {
         return region;
+    }
+
+    public String getPhone() {
+        return phone;
     }
 
     public String getPostalCode() {
@@ -60,6 +68,8 @@ public class Address {
         private String region;
 
         private String postalCode;
+
+        private String phone;
 
         public Address build(AddressRepository repository) {
             Address address = new Address(this);
@@ -88,6 +98,11 @@ public class Address {
 
         public Builder setPostalCode(String postalCode) {
             this.postalCode = postalCode;
+            return this;
+        }
+
+        public Builder setPhone(String phone) {
+            this.phone = phone;
             return this;
         }
     }

@@ -28,7 +28,7 @@ class App extends React.Component {
 
       return (
         <div className="App">
-          <Person first={this.state.first} middle={this.state.middle} last={this.state.last} />
+          <Person first={this.state.first} middle={this.state.middle} last={this.state.last} email={this.state.email} />
           <Address url={this.state._links.address} />
           <University url={this.state._links.education} />
         </div>

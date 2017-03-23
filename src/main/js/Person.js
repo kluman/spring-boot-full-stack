@@ -7,15 +7,16 @@ export default class Person extends React.Component {
   }
 
   render() {
-    const middle = (this.props.middle) ? <span className="Person-middle" itemProp="additionalName">{this.props.middle}</span> : '';
+    const middle = (this.props.middle) ? <span itemProp="additionalName">{this.props.middle}</span> : '';
 
     return(
       <div className="Person">
-        <h1 className="Person-name" itemScope itemType="http://schema.org/Person">
-          <span className="Person-first" itemProp="givenName">{this.props.first}</span>
+        <h1 itemScope itemType="http://schema.org/Person">
+          <span itemProp="givenName">{this.props.first}</span>
           {middle}
-          <span className="Person-last" itemProp="familiyName">{this.props.last}</span>
+          <span itemProp="familiyName">{this.props.last}</span>
         </h1>
+        <span itemProp="email">{this.props.email}</span>
       </div>
     )
   }

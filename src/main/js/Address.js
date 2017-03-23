@@ -26,6 +26,8 @@ export default class Address extends React.Component {
         <span itemProp="streetAddress">{this.state.address}</span>
         <span itemProp="addressLocality">{this.state.city}</span>,
         <span itemProp="addressRegion">{this.state.region}</span>
+        <span itemProp="postalCode">{this.state.postalCode}</span>
+        <span itemProp="telephone">{this.state.phone}</span>
       </div>
     )
   }

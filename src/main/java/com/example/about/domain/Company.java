@@ -20,9 +20,7 @@ public class Company {
 
     @OneToOne
     private final Address address;
-
-    private final String phone;
-
+    
     private final String website;
 
     @OneToMany
@@ -31,7 +29,6 @@ public class Company {
     public Company(Builder builder) {
         this.name = builder.name;
         this.address = builder.address;
-        this.phone = builder.phone;
         this.website = builder.website;
         this.positions = builder.positions;
     }
@@ -40,7 +37,6 @@ public class Company {
     public Company() {
         this.name = null;
         this.address = null;
-        this.phone = null;
         this.website = null;
         this.positions = null;
     }
@@ -51,10 +47,6 @@ public class Company {
 
     public Address getAddress() {
         return address;
-    }
-
-    public String getPhone() {
-        return phone;
     }
 
     public String getWebsite() {
@@ -73,8 +65,6 @@ public class Company {
         private String name;
 
         private Address address;
-
-        private String phone;
 
         private String website;
 
@@ -97,11 +87,6 @@ public class Company {
 
         public Builder address(Address address) {
             this.address = address;
-            return this;
-        }
-
-        public Builder phone(String phone) {
-            this.phone = phone;
             return this;
         }
 

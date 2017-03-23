@@ -25,10 +25,6 @@ public class Person {
     @OneToOne
     private final Address address;
 
-    private final String homePhone;
-
-    private final String mobilePhone;
-
     private final String email;
 
     @OneToMany
@@ -45,8 +41,6 @@ public class Person {
         this.middle = builder.middle;
         this.last = builder.last;
         this.address = builder.address;
-        this.homePhone = builder.homePhone;
-        this.mobilePhone = builder.mobilePhone;
         this.email = builder.email;
         this.links = builder.links;
         this.jobs = builder.jobs;
@@ -59,8 +53,6 @@ public class Person {
         this.middle = null;
         this.last = null;
         this.address = null;
-        this.homePhone = null;
-        this.mobilePhone = null;
         this.email = null;
         this.links = null;
         this.jobs = null;
@@ -81,14 +73,6 @@ public class Person {
 
     public Address getAddress() {
         return address;
-    }
-
-    public String getHomePhone() {
-        return homePhone;
-    }
-
-    public String getMobilePhone() {
-        return mobilePhone;
     }
 
     public String getEmail() {
