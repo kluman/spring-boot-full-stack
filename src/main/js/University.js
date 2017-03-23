@@ -26,7 +26,12 @@ export default class University extends React.Component {
 
     const universities = this.state._embedded.universities.map((university) =>
       <li className="University" key={university._links.self.href}>
-        <p>{university.name}</p>
+        <p className="name">{university.name}</p>
+        <span className="degree">{university.degree}</span>
+        <span className="graduation">
+        {new Date(university.graduation).getFullYear()}
+        </span>
+        <p className="notes">{university.notes}</p>
       </li>
     );
 
