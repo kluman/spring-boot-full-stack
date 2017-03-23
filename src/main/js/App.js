@@ -1,9 +1,11 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
 
-import Person from './Person'
 import Address from './Address'
-import University from './University'
+import Education from './Education'
+import Employment from './Employment'
+import Person from './Person'
+
 import * as Utils from './Utils'
 
 class App extends React.Component {
@@ -25,12 +27,13 @@ class App extends React.Component {
     } else {
       // TODO:  https://facebook.github.io/react/docs/context.html#parent-child-coupling
       //       should _links in person response (ie, jobs...) use Router
-
+      
       return (
         <div className="App">
           <Person first={this.state.first} middle={this.state.middle} last={this.state.last} email={this.state.email} />
           <Address url={this.state._links.address} />
-          <University url={this.state._links.education} />
+          <Education url={this.state._links.education} />
+          <Employment url={this.state._links.employment} />
         </div>
       )
     }

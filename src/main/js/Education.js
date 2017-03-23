@@ -1,21 +1,9 @@
 const React = require('react');
 
-import * as Utils from './Utils'
+import BaseComponent from './BaseComponent'
 
-export default class University extends React.Component {
-
-  constructor(props) {
-    super(props);
-
-    this.state = {};
-  }
-
-  componentDidMount() {
-    if (this.props.url) {
-      Utils.api(this.props.url, this);
-    }
-  }
-
+export default class extends BaseComponent {
+  
   render() {
     if (!this.state.success
       || !this.state._embedded
@@ -24,6 +12,8 @@ export default class University extends React.Component {
       return null;
     }
 
+    // TODO: this is odd - why is University a bunch of schools...should this be Education? Yes?
+    // TODO: can we make a University component and just create them here passing in params! (same for Employment)
     const universities = this.state._embedded.universities.map((university) =>
       <li className="University" key={university._links.self.href}>
         <p className="name">{university.name}</p>

@@ -31,7 +31,7 @@ public class Person {
     private final List<Link> links;
 
     @OneToMany
-    private final List<Company> jobs;
+    private final List<Company> employment;
 
     @OneToMany
     private final List<University> education;
@@ -43,7 +43,7 @@ public class Person {
         this.address = builder.address;
         this.email = builder.email;
         this.links = builder.links;
-        this.jobs = builder.jobs;
+        this.employment = builder.employment;
         this.education = builder.education;
     }
 
@@ -55,7 +55,7 @@ public class Person {
         this.address = null;
         this.email = null;
         this.links = null;
-        this.jobs = null;
+        this.employment = null;
         this.education = null;
     }
 
@@ -86,11 +86,11 @@ public class Person {
         return links;
     }
 
-    public List<Company> getJobs() {
-        if (jobs == null) {
+    public List<Company> getEmployment() {
+        if (employment == null) {
             return new ArrayList<>();
         }
-        return jobs;
+        return employment;
     }
 
     public List<University> getEducation() {
@@ -118,7 +118,7 @@ public class Person {
 
         private List<Link> links;
 
-        private List<Company> jobs;
+        private List<Company> employment;
 
         private List<University> education;
 
@@ -172,8 +172,8 @@ public class Person {
             return this;
         }
 
-        public Builder jobs(List<Company> jobs) {
-            this.jobs = jobs;
+        public Builder employment(List<Company> employment) {
+            this.employment = employment;
             return this;
         }
 

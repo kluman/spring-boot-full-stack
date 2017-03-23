@@ -1,20 +1,8 @@
 const React = require('react');
 
-import * as Utils from "./Utils";
+import BaseComponent from './BaseComponent'
 
-export default class Address extends React.Component {
-
-  constructor(props) {
-    super(props);
-
-    this.state = {};
-  }
-
-  componentDidMount() {
-    if (this.props.url) {
-      Utils.api(this.props.url, this);
-    }
-  }
+export default class extends BaseComponent {
 
   render() {
     if (!this.state.success) {

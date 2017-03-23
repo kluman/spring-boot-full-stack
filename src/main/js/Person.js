@@ -1,11 +1,9 @@
 const React = require('react');
 
-export default class Person extends React.Component {
+import BaseComponent from './BaseComponent'
 
-  constructor(props) {
-    super(props);
-  }
-
+export default class extends BaseComponent {
+  
   render() {
     const middle = (this.props.middle) ? <span itemProp="additionalName">{this.props.middle}</span> : '';
 
