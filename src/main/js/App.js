@@ -3,6 +3,7 @@ const ReactDOM = require('react-dom');
 
 import Person from './Person'
 import Address from './Address'
+import University from './University'
 import * as Utils from './Utils'
 
 class App extends React.Component {
@@ -26,10 +27,11 @@ class App extends React.Component {
       //       should _links in person response (ie, jobs...) use Router
 
       return (
-          <div className="App">
-            <Person first={this.state.first} middle={this.state.middle} last={this.state.last} />
-            <Address url={this.state._links.address} />
-          </div>
+        <div className="App">
+          <Person first={this.state.first} middle={this.state.middle} last={this.state.last} />
+          <Address url={this.state._links.address} />
+          <University url={this.state._links.education} />
+        </div>
       )
     }
 	}
