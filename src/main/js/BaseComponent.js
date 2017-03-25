@@ -1,8 +1,7 @@
-const React = require('react');
-
+import React from 'react'
 import * as Utils from './Utils'
 
-class BaseComponent extends React.Component {
+export default class extends React.Component {
 
   constructor(props) {
     super(props);
@@ -16,5 +15,3 @@ class BaseComponent extends React.Component {
     }
   }
 }
-
-export default BaseComponent

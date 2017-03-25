@@ -1,6 +1,7 @@
 const React = require('react');
 
 import BaseComponent from './BaseComponent'
+import University from './University'
 
 export default class extends BaseComponent {
   
@@ -12,22 +13,16 @@ export default class extends BaseComponent {
       return null;
     }
 
-    // TODO: this is odd - why is University a bunch of schools...should this be Education? Yes?
-    // TODO: can we make a University component and just create them here passing in params! (same for Employment)
-    const universities = this.state._embedded.universities.map((university) =>
-      <li className="University" key={university._links.self.href}>
-        <p className="name">{university.name}</p>
-        <span className="degree">{university.degree}</span>
-        <span className="graduation">
-        {new Date(university.graduation).getFullYear()}
-        </span>
-        <p className="notes">{university.notes}</p>
-      </li>
-    );
-
     return(
       <ul className="University-container">
-        {universities}
+        {this.state._embedded.universities.map((university) =>
+          <University key={university._links.self.href}
+                      name={university.name}
+                      degree={university.degree}
+                      graduation={university.graduation}
+                      notes={university.notes}
+          />
+        )}
       </ul>
     )
   }

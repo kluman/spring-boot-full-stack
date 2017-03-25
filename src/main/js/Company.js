@@ -1,29 +1,19 @@
-const React = require('react');
-
-import * as Utils from './Utils'
+import React from 'react'
+import Address from './Address'
 
 export default class Company extends React.Component {
 
-  constructor(props) {
-    super(props);
-
-    this.state = {};
-  }
-
-  componentDidMount() {
-    if (this.props.url) {
-      Utils.api(this.props.url, this);
-    }
-  }
-
   render() {
-    if (!this.state.success) {
+    if (!this.props.name) {
       return null;
     }
 
     return(
-      <div className="Company-container">
-      </div>
+      <li className="Company">
+        <p className="name">{this.props.name}</p>
+        <span className="website">{this.props.website}</span>
+        <Address url={this.props.address.href} />
+      </li>
     )
   }
 }

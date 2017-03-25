@@ -1,6 +1,6 @@
-const React = require('react');
-
+import React from 'react'
 import BaseComponent from './BaseComponent'
+import Company from './Company'
 
 export default class extends BaseComponent {
 
@@ -9,15 +9,17 @@ export default class extends BaseComponent {
       return null;
     }
 
-    const companies = this.state._embedded.companies.map((company) =>
-          <li className="Company" key={company._links.self.href}>
-            <p className="name">{company.name}</p>
-          </li>
-        );
-
+    // TODO: Pass Jobs, but this will be links and use Router
+    
     return(
       <ol className="Employment">
-        {companies}
+        {this.state._embedded.companies.map((company) =>
+          <Company key={company._links.self.href}
+                   name={company.name}
+                   website={company.website}
+                   address={company._links.address}
+          />
+        )}
       </ol>
     )
   }

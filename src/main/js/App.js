@@ -1,5 +1,6 @@
-const React = require('react');
-const ReactDOM = require('react-dom');
+import React from 'react'
+import ReactDOM from 'react-dom'
+import {Router, Route} from 'react-router'
 
 import Address from './Address'
 import Education from './Education'
@@ -25,9 +26,6 @@ class App extends React.Component {
       return <div className="loading">Loading...</div>
       
     } else {
-      // TODO:  https://facebook.github.io/react/docs/context.html#parent-child-coupling
-      //       should _links in person response (ie, jobs...) use Router
-      
       return (
         <div className="App">
           <Person first={this.state.first} middle={this.state.middle} last={this.state.last} email={this.state.email} />

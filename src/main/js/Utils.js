@@ -1,4 +1,4 @@
-const Rest = require('rest');
+import Rest from 'rest'
 
 /**
  * Makes AJAX request to JPA endpoint and sets the response to the state of the React component.
