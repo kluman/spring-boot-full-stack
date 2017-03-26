@@ -8,8 +8,6 @@ export default class extends BaseComponent {
     if (!this.state.success) {
       return null;
     }
-
-    // TODO: Pass Jobs, but this will be links and use Router
     
     return(
       <ol className="Employment">
@@ -18,6 +16,8 @@ export default class extends BaseComponent {
                    name={company.name}
                    website={company.website}
                    address={company._links.address}
+                   positions={company._links.positions}
+                   
           />
         )}
       </ol>

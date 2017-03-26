@@ -33,3 +33,16 @@ export function api(url, component) {
     }
   });
 }
+
+/**
+ * Returns a formatted date or empty string.
+ * 
+ * @param date
+ */
+export function formatMonthYear(date) {
+  if (date) {
+    let _date = new Date(date);
+    return _date.getMonth() + '/' + _date.getFullYear();
+  }
+  return "";
+}

@@ -1,5 +1,4 @@
-const React = require('react');
-
+import React from 'react'
 import BaseComponent from './BaseComponent'
 import University from './University'
 
