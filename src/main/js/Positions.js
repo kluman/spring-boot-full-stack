@@ -2,7 +2,7 @@ import React from 'react'
 import BaseComponent from './BaseComponent'
 import Position from './Position'
 
-export default class extends BaseComponent {
+export default class Positions extends BaseComponent {
 
   render() {
     if (!this.state.success

@@ -2,7 +2,7 @@ import React from 'react'
 import * as Utils from './Utils'
 import Projects from './Projects'
 
-export default class extends React.Component {
+export default class Position extends React.Component {
 
   render() {
     if (!this.props.title) {

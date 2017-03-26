@@ -1,7 +1,7 @@
 import React from 'react'
 import BaseComponent from './BaseComponent'
 
-export default class extends BaseComponent {
+export default class Person extends BaseComponent {
   
   render() {
     const middle = (this.props.middle) ? <span itemProp="additionalName">{this.props.middle}</span> : '';

@@ -1,7 +1,7 @@
 import React from 'react'
 import * as Utils from './Utils'
 
-export default class extends React.Component {
+export default class Project extends React.Component {
 
   render() {
     if (!this.props.title) {

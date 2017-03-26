@@ -1,7 +1,7 @@
 import React from 'react'
 import BaseComponent from './BaseComponent'
 
-export default class extends BaseComponent {
+export default class Address extends BaseComponent {
 
   render() {
     if (!this.state.success) {

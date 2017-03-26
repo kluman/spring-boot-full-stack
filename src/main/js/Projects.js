@@ -2,7 +2,7 @@ import React from 'react'
 import BaseComponent from './BaseComponent'
 import Project from './Project'
 
-export default class extends BaseComponent {
+export default class Projects extends BaseComponent {
 
   render() {
     if (!this.state.success
