@@ -42,7 +42,7 @@ export function api(url, component) {
 export function formatMonthYear(date) {
   if (date) {
     let _date = new Date(date);
-    return _date.getMonth() + '/' + _date.getFullYear();
+    return (_date.getMonth() + 1) + '/' + _date.getFullYear();
   }
   return "";
 }

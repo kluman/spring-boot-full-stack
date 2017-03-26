@@ -9,7 +9,7 @@ import com.example.about.domain.Company;
 import com.example.about.domain.CompanyRepository;
 import com.example.about.domain.Person;
 import com.example.about.domain.PersonRepository;
-import com.example.about.domain.Position.Builder;
+import com.example.about.domain.Position;
 import com.example.about.domain.PositionRepository;
 import com.example.about.domain.Project;
 import com.example.about.domain.ProjectRepository;
@@ -90,7 +90,7 @@ public class AboutLoader implements ApplicationListener<ContextRefreshedEvent> {
                 .employment(new ImmutableList.Builder<Company>()
                         .add(new Company.Builder()
                                 .name("Pefect Sense")
-                                .website("http://www.perfectsensedigital.com/")
+                                .website("http://www.perfectsensedigital.com")
                                 .address(new Address.Builder()
                                         .setAddress("12120 Sunset Hills Rd")
                                         .setCity("Reston")
@@ -99,7 +99,7 @@ public class AboutLoader implements ApplicationListener<ContextRefreshedEvent> {
                                         .setPhone("(703) 956-5850")
                                         .build(addressRepository))
                                 .positions(new ImmutableList.Builder()
-                                        .add(new Builder()
+                                        .add(new Position.Builder()
                                                 .title("Principle Software Engineer")
                                                 .start(Date.from(Instant.ofEpochSecond(1271725446)))
                                                 .projects(new ImmutableList.Builder()
@@ -114,6 +114,29 @@ public class AboutLoader implements ApplicationListener<ContextRefreshedEvent> {
                                                                 .website("www.univision.com")
                                                                 .build(projectRepository))
                                                         .build())
+                                                .build(positionRepository))
+                                        .build())
+                                .build(companyRepository))
+                        .add(new Company.Builder()
+                                .name("Aol")
+                                .website("http://www.aol.com")
+                                .address(new Address.Builder()
+                                        .setAddress("22000 Aol Way")
+                                        .setCity("Dulles")
+                                        .setRegion("VA")
+                                        .setPostalCode("20166")
+                                        .setPhone("(703) 265-2100")
+                                        .build(addressRepository))
+                                .positions(new ImmutableList.Builder()
+                                        .add(new Position.Builder()
+                                                .title("Technology Manager, Software Engineering")
+                                                .start(Date.from(Instant.ofEpochSecond(1086120718)))
+                                                .end(Date.from(Instant.ofEpochSecond(1270152718)))
+                                                .build(positionRepository))
+                                        .add(new Position.Builder()
+                                                .title("Software Engineer")
+                                                .start(Date.from(Instant.ofEpochSecond(959890318)))
+                                                .end(Date.from(Instant.ofEpochSecond(1086120718)))
                                                 .build(positionRepository))
                                         .build())
                                 .build(companyRepository))
