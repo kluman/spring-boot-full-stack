@@ -1,6 +1,11 @@
-var path = require('path');
+const path = require('path');
+const webpack = require('webpack');
 
+// Webpack 2 config options:  https://webpack.js.org/configuration/
 module.exports = {
+  resolve: {
+    extensions: ['.js', '.jsx']
+  },
   entry: './src/main/js/App.js',
   output: {
     path: __dirname,
@@ -10,11 +15,12 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx)$/,
+        exclude: /(node_modules|bower_components)/,
         use: [
           {
             loader: "babel-loader",
             options: {
-                cacheDirectory: true,
+                cacheDirectory: false,
                 presets: ['es2015', 'react']
             }
           }

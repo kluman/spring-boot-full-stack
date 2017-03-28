@@ -1,6 +1,12 @@
 import React from 'react'
 import BaseComponent from './BaseComponent'
 
+import AppBar from 'material-ui/AppBar'
+
+// Needed for onTouchTap
+import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin();
+
 export default class Person extends BaseComponent {
   
   render() {
@@ -8,6 +14,11 @@ export default class Person extends BaseComponent {
 
     return(
       <div className="Person">
+        <AppBar
+            title="Hello World"
+            iconClassNameRight="muidocs-icon-navigation-expand-more"
+        />
+
         <h1 itemScope itemType="http://schema.org/Person">
           <span itemProp="givenName">{this.props.first}</span>
           {middle}
