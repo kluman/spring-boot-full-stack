@@ -15,7 +15,7 @@ export default class Person extends BaseComponent {
     return(
       <div className="Person">
         <AppBar
-            title="Hello World"
+            title={this.props.fullName}
             iconClassNameRight="muidocs-icon-navigation-expand-more"
         />
 

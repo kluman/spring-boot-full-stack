@@ -9,6 +9,9 @@ const customTheme = getMuiTheme({
   appBar: {
     color: colors.orange400,
     textColor: colors.blue600
+  },
+  person: {
+    
   }
 });
 

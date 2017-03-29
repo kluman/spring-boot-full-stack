@@ -40,7 +40,8 @@ class App extends React.Component {
       return (
         <MuiThemeProvider muiTheme={customTheme}>
           <div className="App">
-            <Person first={this.state.first} middle={this.state.middle} last={this.state.last} email={this.state.email} />
+            <Person first={this.state.first} middle={this.state.middle} last={this.state.last}
+                    email={this.state.email} fullName={this.state.fullName} />
             <Address url={this.state._links.address} />
             <Education url={this.state._links.education} />
             <Employment url={this.state._links.employment} />

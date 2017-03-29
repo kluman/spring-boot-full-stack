@@ -100,6 +100,17 @@ public class Person {
         return education;
     }
 
+    public String getFullName() {
+        StringBuilder fullName = new StringBuilder();
+        fullName.append(first).append(" ");
+        if (middle != null) {
+            fullName.append(middle).append(" ");
+        }
+        fullName.append(last);
+
+        return fullName.toString();
+    }
+
     public static class Builder {
 
         private String first;
