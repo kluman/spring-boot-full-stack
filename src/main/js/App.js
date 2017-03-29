@@ -13,6 +13,9 @@ import Person from './Person'
 import * as Utils from './Utils'
 import {customTheme} from './theme'
 
+// Webpack will treat this like any other module and the style+less loaders will insert style tags with the compiled CSS.
+import '../styles/App.less'
+
 class App extends React.Component {
 
 	constructor(props) {
