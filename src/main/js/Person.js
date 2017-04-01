@@ -19,12 +19,13 @@ export default class Person extends BaseComponent {
             iconClassNameRight="muidocs-icon-navigation-expand-more"
         />
 
-        <h1 itemScope itemType="http://schema.org/Person">
+        <div itemScope itemType="http://schema.org/Person">
           <span itemProp="givenName">{this.props.first}</span>
           {middle}
           <span itemProp="familiyName">{this.props.last}</span>
-        </h1>
-        <span itemProp="email">{this.props.email}</span>
+        </div>
+
+        <div itemProp="email">{this.props.email}</div>
       </div>
     )
   }
