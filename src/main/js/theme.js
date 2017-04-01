@@ -15,18 +15,22 @@ const customTheme = getMuiTheme({
     textColor: colorText,
     alternateTextColor: colorTextAlternate
   },
+
   flatButton: {
     color: colors.grey100,
     textColor: colorHighlight
   },
+
   raisedButton: {
     primaryColor: colorPrimary,
     textColor: colors.white,
     primaryTextColor: colors.white
   },
+
   stepper: {
     iconColor: colorPrimary
   },
+  
   toolbar: {
     color: colorSecondary,
     backgroundColor: colorPrimary

@@ -51,7 +51,7 @@ export default class Employment extends BaseComponent {
     const employment = this;
 
     return(
-      <Stepper activeStep={stepIndex} linear={false} orientation="vertical">
+      <Stepper activeStep={stepIndex} linear={false} orientation="vertical" style={{margin: '0 auto', width: '90%'}}>
         {this.state._embedded.companies.map((company, index) =>
           <Step key={company._links.self.href}>
             <StepButton>{company.name}</StepButton>

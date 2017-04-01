@@ -1,5 +1,13 @@
+
+@color-primary: #C5E1A5;
+@color-secondary: #8BC34A;
 @color-link: #689F38;
 @color-link-visited: #33691E;
+@color-white: #fff;
+@color-grey: #424242;
+
+@space: 20px;
+@space-half: 10px;
 
 html {
     background-color: #fff;
@@ -17,5 +25,19 @@ html {
     body {
         margin: 0;
         padding: 0;
+    }
+
+    footer {
+        margin-top: @space;
+        padding: @space;
+        color: @color-white;
+        background-color: @color-secondary;
+    }
+}
+
+.App {
+    
+    &-info {
+        padding: @space @space-half;
     }
 }
