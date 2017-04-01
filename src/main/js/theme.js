@@ -1,17 +1,35 @@
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import * as colors from 'material-ui/styles/colors';
 
-// MUI theme options are at: https://github.com/callemall/material-ui/blob/master/src/styles/getMuiTheme.js
+const colorPrimary = colors.lightGreen200,
+  colorSecondary = colors.lightGreen500,
+  colorHighlight = colors.lightGreen700,
+  colorText = colors.grey800,
+  colorTextAlternate = colors.grey400;
+
+/* --- MUI theme options ---
+ *    https://github.com/callemall/material-ui/blob/master/src/styles/getMuiTheme.js
+ */
 const customTheme = getMuiTheme({
   palette: {
-    textColor: colors.grey400
+    textColor: colorText,
+    alternateTextColor: colorTextAlternate
   },
-  appBar: {
-    color: colors.orange400,
-    textColor: colors.blue600
+  flatButton: {
+    color: colors.grey100,
+    textColor: colorHighlight
   },
-  person: {
-    
+  raisedButton: {
+    primaryColor: colorPrimary,
+    textColor: colors.white,
+    primaryTextColor: colors.white
+  },
+  stepper: {
+    iconColor: colorPrimary
+  },
+  toolbar: {
+    color: colorSecondary,
+    backgroundColor: colorPrimary
   }
 });
 

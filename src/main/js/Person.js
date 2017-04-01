@@ -1,7 +1,12 @@
 import React from 'react'
 import BaseComponent from './BaseComponent'
 
-import AppBar from 'material-ui/AppBar'
+import {
+  Toolbar,
+  ToolbarGroup,
+  ToolbarSeparator,
+  ToolbarTitle
+} from 'material-ui/Toolbar'
 
 // Needed for onTouchTap
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -14,10 +19,11 @@ export default class Person extends BaseComponent {
 
     return(
       <div className="Person">
-        <AppBar
-            title={this.props.fullName}
-            iconClassNameRight="muidocs-icon-navigation-expand-more"
-        />
+        <Toolbar className="Person-toolbar" noGutter={true}>
+          <ToolbarGroup>
+           <ToolbarTitle text={this.props.fullName} className="Person-toolbar-name" style={{color: '#fff', paddingLeft: '20px'}} />
+          </ToolbarGroup>
+        </Toolbar>
 
         <div itemScope itemType="http://schema.org/Person">
           <span itemProp="givenName">{this.props.first}</span>
