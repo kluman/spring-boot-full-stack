@@ -42,6 +42,12 @@ export default class Employment extends BaseComponent {
     }
   };
 
+  // Note: To pass an argument like 'index' you need to use the ES6 arrow function to bind the arguments. Also
+  //       passing along the event object like the defaults.
+  handleCurrent(e, index) {
+    this.setState({stepIndex: index});
+  }
+
   render() {
     if (!this.state.success) {
       return null;
@@ -49,12 +55,15 @@ export default class Employment extends BaseComponent {
 
     const stepIndex = this.state.stepIndex;
     const employment = this;
+    const limit = this.state._embedded.companies.length - 1;
 
     return(
       <Stepper activeStep={stepIndex} linear={false} orientation="vertical" style={{margin: '0 auto 110px auto', width: '90%'}}>
         {this.state._embedded.companies.map((company, index) =>
           <Step key={company._links.self.href}>
-            <StepButton><h2 className="Company-name">{company.name}</h2></StepButton>
+            <StepButton onTouchTap={(e) => this.handleCurrent(e, index)}>
+              <h2 className="Company-name">{company.name}</h2>
+            </StepButton>
             <StepContent>
               <Company key={company._links.self.href}
                      name={company.name}
@@ -63,7 +72,7 @@ export default class Employment extends BaseComponent {
                      positions={company._links.positions}
 
               />
-              {index === 0 ? (
+              {index < limit ? (
                   <RaisedButton
                     label="Next"
                     disableTouchRipple={true}
