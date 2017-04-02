@@ -1,0 +1,24 @@
+.Education {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    .name {
+        margin: @space 0 @space-quarter 0;
+        font-size: large;
+    }
+
+    .degree, .graduation, .notes {
+        font-size: small;
+    }
+    
+    .degree, .graduation {
+        font-style: italic;
+    }
+
+    .degree {
+        &:after {
+            content: ', ';
+        }
+    }
+}

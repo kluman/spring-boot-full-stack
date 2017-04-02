@@ -9,7 +9,7 @@ export default class Project extends React.Component {
     }
 
     return(
-      <li>
+      <li className="Project">
          <h4>{this.props.title}</h4>
          <div className="dates">
            <span className="start">{Utils.formatMonthYear(this.props.start)}</span>

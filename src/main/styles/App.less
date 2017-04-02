@@ -7,7 +7,13 @@
 @color-grey: #424242;
 
 @space: 20px;
+@space-three-quarter: 15px;
 @space-half: 10px;
+@space-quarter: 5px;
+
+@zindex-base: 1;
+@zindex-overlay: 10;
+@zindex-modal: 20;
 
 html {
     background-color: #fff;
@@ -28,6 +34,11 @@ html {
     }
 
     footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        z-index: @zindex-overlay;
+        width: 100%;
         margin-top: @space;
         padding: @space;
         color: @color-white;
@@ -39,5 +50,16 @@ html {
     
     &-info {
         padding: @space @space-half;
+        text-align: center;
     }
 }
+
+/* Component Styles */
+
+@import "Address";
+@import "Company";
+@import "Education";
+@import "Person";
+@import "Position";
+@import "Project";
+@import "University";
