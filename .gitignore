@@ -11,4 +11,4 @@ node_modules/
 /target
 
 # Build Resources (JS/CSS)
-src/main/resources/static/build/
+src/main/resources/static/build*
