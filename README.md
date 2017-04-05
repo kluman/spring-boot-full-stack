@@ -11,6 +11,27 @@ While this project is in no way what I would consider "production quality" it do
 try to demonstrate more than just the simplistic "hello world" examples. Hopefully you
 will find it of use in getting started with these great Web development platform/frameworks.
 
+## Installation
+
+### Dependencies
+
+1. [Git](https://git-scm.com/downloads), of course, installed on your local machine. 
+2. [Maven](https://maven.apache.org/) to compile and run the project.
+
+Assuming you have Git and Maven on your local machine you will run the following commands. On the terminal of your
+choice and change directories to where you want the cloned project files to download.
+
+```
+git clone https://github.com/kluman/about.git
+```
+Since we are using Maven to run/build this project you will execute the following at the project root.
+
+```
+mvn spring-boot:run
+```
+In your Web browser go to <span style="font-style: Courier;">http://localhost:8080/</span> 
+
+
 ## Backend
 
 ### Spring Boot
@@ -45,11 +66,11 @@ spring-boot-starter-mustache   | Starter for building MVC web applications using
 #### Structure
 
 The models and their corresponding `*Repository` interfaces are all contained within 
-the "domain" package. Models are simple pojos with various Spring JPA annotations. Basically, 
-every field in your pojo is in turn tied to a column in the DB.
+the "domain" package. Models are simple POJOs with various Spring JPA annotations. Basically, 
+every field in your POJO is in turn tied to a column in the DB.
 It's that easy!
 
-Each model pojo also contains a `Builder` static nested class 
+Each model POJO also contains a `Builder` static nested class 
 following a builder pattern. None of these `Builder` classes are required and
 would probably not exist in a real world example, but it made populating the H2 database
 a heck of a lot easier. More on that later.
@@ -86,4 +107,3 @@ in this method that we use all of those `Builder` static nested classes to popul
 ## Frontend
 
 TODO
-
