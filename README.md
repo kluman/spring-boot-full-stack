@@ -1,4 +1,4 @@
-# Full stack development with Sprint Boot, React, Material-UI and Webpack
+# Full stack development with Spring Boot, React, Material-UI and Webpack
 
 This project demonstrates a full-stack implementation using [Spring Boot](https://projects.spring.io/spring-boot/)
 to handle the backend wired together with [React](https://facebook.github.io/react/) and 
