@@ -19,7 +19,7 @@ will find it of use in getting started with these great Web development platform
 2. [Maven](https://maven.apache.org/) to compile and run the project.
 
 Assuming you have Git and Maven on your local machine you will run the following commands. On the terminal of your
-choice and change directories to where you want the cloned project files to download.
+choice change directories to where you want the cloned project files to download and run:
 
 ```
 git clone https://github.com/kluman/about.git
@@ -29,7 +29,8 @@ Since we are using Maven to run/build this project you will execute the followin
 ```
 mvn spring-boot:run
 ```
-In your Web browser go to <span style="font-style: Courier;">http://localhost:8080/</span> 
+This will compile and startup a Tomcat server on your localhost. In your Web browser go to http://localhost:8080/
+and check it out.
 
 
 ## Backend
