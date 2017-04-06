@@ -66,10 +66,48 @@ spring-boot-starter-mustache   | Starter for building MVC web applications using
 
 #### Structure
 
+```
+About Project Structure
+------------------------------------------------------------------------
+
+ + 
+ - pom.xml
+ - package.json
+ - webpack.config.js 
+ 
+    + src/main/java/com.example.about
+        - AboutLoader
+        - Application
+        
+        + domain
+            - Address
+            - AddressRepository
+            - Company
+            - CompanyRepository
+            - ...
+            
+        + web
+            - AboutController
+            - WebConfiguration
+    
+    + js
+        - Address.js
+        - Company.js
+        - ....
+    
+    + resources/templates
+        - index.html
+        
+    + styles
+        - Address.less
+        - Company.less
+        - ...        
+ ```   
+
+
 The models and their corresponding `*Repository` interfaces are all contained within 
 the "domain" package. Models are simple POJOs with various Spring JPA annotations. Basically, 
-every field in your POJO is in turn tied to a column in the DB.
-It's that easy!
+every field in your POJO is in turn tied to a column in the DB. It's that easy!
 
 Each model POJO also contains a `Builder` static nested class 
 following a builder pattern. None of these `Builder` classes are required and
@@ -107,4 +145,11 @@ in this method that we use all of those `Builder` static nested classes to popul
 
 ## Frontend
 
-TODO
+The frontend is built using React and Material-UI, which is a set of React components following Google's Material 
+Design. The React components call the JPA fed REST endpoints to populate themselves. CSS is generated at build time
+from the LESS files in the "styles" directory.
+
+[Webpack2](https://webpack.js.org/guides/get-started/) is used to build and bundle up our Javascript as well as
+compiling our LESS files into CSS and injecting into the HTML `head` element. The POM file also contains a
+plugin that will install Node, Node Package Manager (NPM) and execute the Webpack build.
+
